@@ -61,7 +61,7 @@ const moneroUtils_promise = new Promise(function(resolve, reject)
 		local_fns.Module = coreBridge_instance.Module;
 		resolve(local_fns);
 	}
-	if (wants_electronRemote) {
+	if (false) {
 		// Require file again except on the main process ...
 		// this avoids a host of issues running wasm on the renderer side, 
 		// for right now until we can load such files raw w/o unsafe-eval

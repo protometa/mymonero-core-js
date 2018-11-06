@@ -658,19 +658,12 @@ module.exports = function(options)
 					}
 				} else if (ENVIRONMENT_IS_WEB) {
 					var pathTo_cryptonoteUtilsDir;
-					if (typeof __dirname !== undefined && __dirname !== "/") { // looks like node running in browser.. (but not going to assume it's electron-renderer since that should be taken care of by monero_utils.js itself)
-						// but just in case it is... here's an attempt to support it
-						// have to check != "/" b/c webpack (I think) replaces __dirname
-						pathTo_cryptonoteUtilsDir = "file://" + __dirname + "/" // prepending "file://" because it's going to try to stream it
-					} else { // actual web browser
 						pathTo_cryptonoteUtilsDir = this_scriptDirectory + "/mymonero_core_js/monero_utils/" // this works for the MyMonero browser build, and is quite general, at least
-					}
 					fullPath = pathTo_cryptonoteUtilsDir + filename
 				}
 				if (fullPath == null) {
 					throw "Unable to derive fullPath. Please pass locateFile() to cryptonote_utils init."
 				}
-				//
 				return fullPath
 			}
 			//
